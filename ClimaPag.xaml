@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClimaTes.Climapag"
+             Title="Climapag"
+             BackgroundColor="White">
+    
+    <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto"
+          RowSpacing="20">
+
+        <StackLayout Grid.Row="0" Margin="20,20,20,0" Orientation="Horizontal">
+            <Frame Padding="10" CornerRadius="10" HasShadow="True" BorderColor="LightGray">
+                <Label Text="Ubicacion" FontSize="Default" TextColor="Black"></Label>
+            </Frame>
+            <ImageButton Source="buscar.png" HeightRequest="30"
+                         WidthRequest="30" HorizontalOptions="EndAndExpand"></ImageButton>
+
+        </StackLayout>
+
+        <StackLayout Grid.Row="1" Orientation="Vertical">
+            <Label x:Name="LblCiudad" FontSize="25" HorizontalOptions="Center"
+                   TextColor="Gray" Text="Guayaquil"></Label>
+            <Label x:Name="LblPais" FontSize="20" HorizontalOptions="Center"
+                   TextColor="Gray" Text="Ecuador"></Label>
+            <Label x:Name="LblClima" FontSize="15" HorizontalOptions="Center"
+                   TextColor="Gray" Text="Parcialmente Nublado"></Label>
+
+        </StackLayout>
+
+        <Image Grid.Row="2" x:Name="ImgClimaIcon" VerticalOptions="Start" HeightRequest="300" WidthRequest="300" Source="clima2.png"></Image>
+
+        <Grid Grid.Row="3" RowDefinitions="Auto, Auto" ColumnDefinitions="0.33*,0.33*,0.33*" Margin="20">
+            <Image x:Name="ImgHumedadIcon" Grid.Row="0"  Grid.Column="0" HorizontalOptions="Center" HeightRequest="25" Source="humedadicon.png"></Image>
+            <Label x:Name="LblHumedad" Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" Text="76%" TextColor="Black"></Label>
+            <Label x:Name="LblTemperatura" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" HorizontalOptions="Center" FontSize="40" FontAttributes="Bold" Text="25&#x2103;" TextColor="Black"></Label>
+            <Image x:Name="ImgVientoIcon" Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" HeightRequest="25" Source="vientoicon.png"></Image>
+            <Label x:Name="LblViento" Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" Text="88" TextColor="Black"></Label>
+        </Grid>
+
+        <CollectionView Grid.Row="4"
+                        x:Name="CvTiempo"
+                        HeightRequest="100">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Horizontal" 
+                                   ItemSpacing="20"/>
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Start"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            Source="Clima2xxn.png"
+                         />
+                        <Label Grid.Row="1"
+                            FontSize="Large"
+                            HorizontalOptions="Center"
+                            Text="25°C"/>
+                        <Label Grid.Row="2"
+                            FontSize="Small"
+                            HorizontalOptions="Center"
+                            Text="12:00"/>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>
